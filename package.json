@@ -1,0 +1,77 @@
+{
+  "name": "gatsby-starter-leaflet",
+  "description": "A Gatsby starter with Leafet!",
+  "version": "0.2.0",
+  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "gatsby": "^2.16.5",
+    "gatsby-plugin-react-helmet": "^3.1.13",
+    "gatsby-plugin-react-leaflet": "2.0.11",
+    "gatsby-plugin-resolve-src": "^2.0.0",
+    "gatsby-plugin-sass": "^2.1.20",
+    "gatsby-source-filesystem": "^2.1.33",
+    "leaflet": "^1.5.1",
+    "leaflet-antimeridian": "git+https://git@github.com/briannaAndCo/Leaflet.Antimeridian.git",
+    "node-sass": "^4.11.0",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.0",
+    "react-leaflet": "^2.5.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.20",
+    "enzyme": "^3.10.0",
+    "eslint": "^6.5.1",
+    "eslint-config-zurgbot": "^0.0.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0"
+  },
+  "keywords": [
+    "gatsby",
+    "sass",
+    "leaflet",
+    "mapping",
+    "maps"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write '**/*.js'",
+    "lint": "eslint -c ./config/eslint.config.js . --ext .js",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "jest --config ./config/jest.config.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "yarn format",
+      "yarn lint",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colbyfayock/gatsby-starter-leaflet"
+  },
+  "bugs": {
+    "url": "https://github.com/colbyfayock/gatsby-starter-leaflet/issues"
+  }
+}
