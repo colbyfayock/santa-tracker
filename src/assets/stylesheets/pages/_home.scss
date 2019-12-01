@@ -60,6 +60,28 @@
 
 }
 
+.home-hero {
+
+  display: flex;
+  background: $grey-100;
+
+  .map {
+    width: 70vw;
+  }
+
+}
+
+.home-hero-content {
+
+  text-align: left;
+  padding: 2em;
+
+  h1 {
+    margin-top: 0;
+  }
+
+}
+
 .home-start {
 
   padding-top: 4em;

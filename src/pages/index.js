@@ -12,7 +12,7 @@ const LOCATION = {
   lng: -77.0369
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 3;
+const DEFAULT_ZOOM = 2;
 
 const IndexPage = () => {
   /**
@@ -40,16 +40,20 @@ const IndexPage = () => {
         <title>Santa Tracker</title>
       </Helmet>
 
-      <Map {...mapSettings} />
+      <Container className="text-center home-hero">
+        <Map {...mapSettings} />
+        <div className="home-hero-content">
+          <h1>
+            Santa Tracker{ ' ' }
+            <span role="img" aria-label="santa">
+              🎅
+            </span>
+          </h1>
+          <h2>Build your own mapping app!</h2>
+        </div>
+      </Container>
 
       <Container type="content" className="text-center home-start">
-        <h1>
-          Santa Tracker{ ' ' }
-          <span role="img" aria-label="santa">
-            🎅
-          </span>
-        </h1>
-        <h2>Build your mapping app!</h2>
         <p>Run the following in your terminal!</p>
         <pre>
           <code>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</code>

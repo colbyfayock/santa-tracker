@@ -136,7 +136,6 @@ function getCurrentLocation( desintations ) {
 
 function deliveryPointToLayer( feature = {}, latlng ) {
   const { properties = {} } = feature;
-  console.log( 'feature', feature );
   const { presentsDelivered = 0, city, region } = properties;
   const text = `
     <div class="text-center">
