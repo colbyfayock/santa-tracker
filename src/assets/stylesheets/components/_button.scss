@@ -1,5 +1,8 @@
 .button {
-  display: inline-block;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
   color: darken($amber-900, 30);
   font-weight: 700;
@@ -7,4 +10,17 @@
   padding: .6em 1em;
   background-color: $amber-400;
   box-shadow: 0 2px 3px rgba(0,0,0,.2);
+
+  &:hover {
+    background: linear-gradient($amber-200, $amber-400);
+  }
+
+  &:active {
+    background: linear-gradient($amber-600, $amber-400)
+  }
+
+  svg {
+    margin-right: .8em;
+  }
+
 }

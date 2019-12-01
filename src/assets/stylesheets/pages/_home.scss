@@ -42,6 +42,19 @@
 
   }
 
+  ul {
+    list-style: none;
+  }
+
+  li {
+
+    &:before {
+      content: '🔔';
+      margin-left: -2em;
+      margin-right: .5em;
+    }
+  }
+
 }
 
 .home-hero-content {
@@ -63,7 +76,14 @@
   }
 
   a:not(.button) {
+
     color: $amber-300;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
   }
 
 }

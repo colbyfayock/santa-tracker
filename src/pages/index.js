@@ -1,5 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { FaGithub } from 'react-icons/fa';
 
 import { findSanta } from 'lib/santa';
 
@@ -69,6 +70,7 @@ const IndexPage = () => {
           </p>
           <p>
             <a className="button" href="https://github.com/colbyfayock/santa-tracker">
+              <FaGithub />
               View Source on Github
             </a>
           </p>
