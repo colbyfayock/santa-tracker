@@ -1,0 +1,9 @@
+.button {
+  display: inline-block;
+  max-width: 100%;
+  color: darken($amber-900, 30);
+  text-decoration: none;
+  padding: .6em 1em;
+  background-color: $amber-400;
+  box-shadow: 0 2px 3px rgba(0,0,0,.2);
+}

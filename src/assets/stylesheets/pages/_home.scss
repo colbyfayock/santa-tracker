@@ -2,60 +2,17 @@
 
   .map,
   .map-base {
-    height: 70vh;
+
+    height: 80vh;
+
+    @media (max-width: 968px) {
+      height: 60vh;
+    }
+
   }
 
   main {
     padding: 0;
-  }
-
-  .popup-gatsby {
-    display: flex;
-    width: 36em;
-    padding: 1em;
-    border-radius: 1em;
-  }
-
-  .popup-gatsby-image {
-    display: flex;
-    align-items: center;
-    margin-right: 2em;
-  }
-
-  .popup-gatsby-content {
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-    text-align: left;
-    padding-right: 1em;
-
-    h1 {
-      margin: 0 0 .2em;
-    }
-    p {
-      margin: 0 0 .5em;
-    }
-
-  }
-
-  .gatsby-astronaut {
-
-    overflow: hidden;
-    width: 10em;
-    height: 10em;
-    background-color: $gatsby-purple;
-    border-radius: 100%;
-    border: solid 6px $gatsby-purple;
-    margin: 0;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-
   }
 
 }
@@ -63,21 +20,50 @@
 .home-hero {
 
   display: flex;
-  background: $grey-100;
+  color: white;
+  font-size: 1.2em;
+  background: $red-900;
+
+  @media (max-width: 968px) {
+    flex-wrap: wrap;
+  }
+
+  p {
+    color: $red-50;
+  }
 
   .map {
-    width: 70vw;
+
+    width: 80vw;
+
+    @media (max-width: 968px) {
+      width: 100%;
+    }
+
   }
 
 }
 
 .home-hero-content {
 
+  min-width: 0;
   text-align: left;
   padding: 2em;
 
   h1 {
+
+    font-size: 4vw;
     margin-top: 0;
+    margin-bottom: .2em;
+
+    @media (max-width: 968px) {
+      font-size: 2em;
+    }
+
+  }
+
+  a:not(.button) {
+    color: $amber-300;
   }
 
 }
@@ -88,6 +74,7 @@
   padding-bottom: 4em;
 
   h2 {
+    font-size: 2em;
     margin-top: 0;
   }
 
@@ -96,6 +83,7 @@
   }
 
   pre {
+    overflow-x: scroll;
     margin-bottom: 1.5em;
   }
 

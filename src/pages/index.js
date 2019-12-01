@@ -18,7 +18,6 @@ const IndexPage = () => {
   /**
    * mapEffect
    * @description Fires a callback once the page renders
-   * @example Here this is and example of being used to zoom in and set a popup on load
    */
 
   async function mapEffect({ leafletElement } = {}) {
@@ -49,11 +48,32 @@ const IndexPage = () => {
               🎅
             </span>
           </h1>
-          <h2>Build your own mapping app!</h2>
+          <p>Built with:</p>
+          <ul>
+            <li>
+              <a href="https://leafletjs.com/">Leaflet</a>
+            </li>
+            <li>
+              <a href="https://react-leaflet.js.org/">React Leaflet</a>
+            </li>
+            <li>
+              <a href="https://www.gatsbyjs.org/">Gatsby</a>
+            </li>
+          </ul>
+          <p>
+            Packaged neatly in a Gatsby Starter:{ ' ' }
+            <a href="https://github.com/colbyfayock/gatsby-starter-leaflet">gatsby-starter-leaflet</a>.
+          </p>
+          <p>
+            <a className="button" href="https://github.com/colbyfayock/santa-tracker">
+              View Source on Github
+            </a>
+          </p>
         </div>
       </Container>
 
       <Container type="content" className="text-center home-start">
+        <h2>Build your own mapping app!</h2>
         <p>Run the following in your terminal!</p>
         <pre>
           <code>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</code>
