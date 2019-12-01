@@ -12,7 +12,7 @@ const LOCATION = {
   lng: -77.0369
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 2;
+const DEFAULT_ZOOM = 1;
 
 const IndexPage = () => {
   /**
@@ -60,10 +60,7 @@ const IndexPage = () => {
               <a href="https://www.gatsbyjs.org/">Gatsby</a>
             </li>
             <li>
-              <a href="https://www.mapbox.com/">Mapbox Basemap</a>
-            </li>
-            <li>
-              <a href="https://blog.mapbox.com/the-story-of-picture-book-e0de74c107fa">Picture Book Map Theme</a>
+              <a href="https://blog.mapbox.com/the-story-of-picture-book-e0de74c107fa">Mapbox Picture Book Map Theme</a>
             </li>
           </ul>
           <p>
