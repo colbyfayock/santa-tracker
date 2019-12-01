@@ -19,7 +19,7 @@ const Map = ( props ) => {
   });
 
   const services = useMapServices({
-    names: ['OpenStreetMap']
+    names: [defaultBaseMap]
   });
   const basemap = services.find(( service ) => service.name === defaultBaseMap );
 

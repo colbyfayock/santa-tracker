@@ -27,7 +27,7 @@ const IndexPage = () => {
 
   const mapSettings = {
     center: CENTER,
-    defaultBaseMap: 'OpenStreetMap',
+    defaultBaseMap: 'mapbox',
     zoom: DEFAULT_ZOOM,
     noWrap: true,
     mapEffect
@@ -58,6 +58,12 @@ const IndexPage = () => {
             </li>
             <li>
               <a href="https://www.gatsbyjs.org/">Gatsby</a>
+            </li>
+            <li>
+              <a href="https://www.mapbox.com/">Mapbox Basemap</a>
+            </li>
+            <li>
+              <a href="https://blog.mapbox.com/the-story-of-picture-book-e0de74c107fa">Picture Book Map Theme</a>
             </li>
           </ul>
           <p>
