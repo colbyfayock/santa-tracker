@@ -37,7 +37,7 @@ const Map = ( props ) => {
     );
   }
 
-  const bounds = new L.LatLngBounds(new L.LatLng(-90,-180), new L.LatLng(90,180));
+  const bounds = new L.LatLngBounds( new L.LatLng( -90, -180 ), new L.LatLng( 90, 180 ));
 
   const mapSettings = {
     className: 'map-base',
@@ -50,8 +50,8 @@ const Map = ( props ) => {
 
   const basemapSettings = {
     ...basemap,
-    noWrap: true,
-  }
+    noWrap: true
+  };
 
   return (
     <div className={mapClassName}>
