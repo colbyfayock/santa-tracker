@@ -11,6 +11,7 @@ export const mapServices = [
     maxZoom: 18,
     nativeZoom: 18,
     minZoom: 3,
+    tileSize: 256,
     url: `https://api.mapbox.com/styles/v1/colbyfayock/ck3n2uxlh4gqe1co3qsye6xla/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY29sYnlmYXlvY2siLCJhIjoiY2szbjMzazVnMGxwbzNncGJ2aTNqN3oybCJ9.Li_g1z4432AAWd76TXGBsA`
   }
 ];

@@ -42,15 +42,13 @@ const Map = ( props ) => {
   const mapSettings = {
     className: 'map-base',
     zoomControl: false,
-    noWrap: true,
     maxBounds: bounds,
     maxBoundsViscosity: 1.0,
     ...rest
   };
 
   const basemapSettings = {
-    ...basemap,
-    noWrap: true
+    ...basemap
   };
 
   return (
