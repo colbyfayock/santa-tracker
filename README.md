@@ -1,5 +1,7 @@
-# Santa Tracker Demo
+# Santa Tracker Demo 🎅
 Utilizies React Leaflet Gatsby, and Google's unofficial Santa Tracker API to show Santa's routes and the presents delivered.
+
+🎄🎁🎄🎁🎄🎁🎄🎁🎄🎁
 
 # Spun up with Gatsby Leaflet Starter
 
