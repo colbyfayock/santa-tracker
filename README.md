@@ -1,6 +1,7 @@
-# Gatsby Leaflet Starter
+# Santa Tracker Demo
+Utilizies React Leaflet Gatsby, and Google's unofficial Santa Tracker API to show Santa's routes and the presents delivered.
 
-Jumpstart your next Gatsby mapping project with Leaflet!
+# Spun up with Gatsby Leaflet Starter
 
 ## What This Includes
 * [Yarn](https://yarnpkg.com/en/)
