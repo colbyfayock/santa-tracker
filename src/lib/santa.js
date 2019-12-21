@@ -48,6 +48,19 @@ export async function findSanta( map ) {
     return;
   }
 
+  if ( !activeSantasRoute ) {
+    const center = new L.LatLng( 0, 0 );
+    const noSanta = L.marker( center, {
+      icon: santaIconDiv
+    });
+
+    noSanta.addTo( map );
+    noSanta.bindPopup( `Santa's still at the North Pole!` );
+    noSanta.openPopup();
+
+    return;
+  }
+
   const { destinations } = activeSantasRoute;
   const santasLocation = getCurrentLocation( destinations );
   const deliveries = desintationsWithPresents( destinations );
@@ -76,6 +89,8 @@ export async function findSanta( map ) {
   route.addTo( map );
   stops.addTo( map );
   santa.addTo( map );
+
+  return santasLocation;
 }
 
 /**
@@ -106,6 +121,8 @@ async function getSanta() {
 async function getSantasRoute( santa ) {
   const { route } = santa;
   let santasRoute;
+
+  if ( !route ) return;
 
   try {
     santasRoute = await axios.get( route );
