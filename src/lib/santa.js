@@ -47,7 +47,6 @@ export async function findSanta( map ) {
   }
 
   const { destinations = [] } = activeSantasRoute;
-  const santasLocation = getCurrentLocation( destinations );
   const stops = desintationsWithStops( destinations );
   const deliveries = desintationsWithPresents( stops );
 
@@ -64,6 +63,7 @@ export async function findSanta( map ) {
     return;
   }
 
+  const santasLocation = getCurrentLocation( deliveries );
   const stopsGeoJson = geoJsonPointsFromDestinations( deliveries );
   const stopsLatLngs = latLngsFromDesintations( deliveries );
 
