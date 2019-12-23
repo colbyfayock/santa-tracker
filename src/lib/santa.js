@@ -7,8 +7,8 @@ import { FaGift } from 'react-icons/fa';
 
 import { isDomAvailable, numberWithCommas } from 'lib/util';
 
-const santaApiEndpoint =
-  'https://santa-api.appspot.com/info?client=web&language=en&fingerprint=&routeOffset=0&streamOffset=0';
+const santasRouteApiEndpoint =
+  'https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media&2018b';
 
 let giftIconDiv;
 let santaIconDiv;
@@ -37,18 +37,21 @@ if ( isDomAvailable()) {
  */
 
 export async function findSanta( map ) {
-  let activeSanta;
   let activeSantasRoute;
 
   try {
-    activeSanta = await getSanta();
-    activeSantasRoute = await getSantasRoute( activeSanta );
+    activeSantasRoute = await getSantasRoute();
   } catch ( e ) {
     console.error( 'Failed to get Santa and their route', e );
     return;
   }
 
-  if ( !activeSantasRoute ) {
+  const { destinations = [] } = activeSantasRoute;
+  const santasLocation = getCurrentLocation( destinations );
+  const stops = desintationsWithStops( destinations );
+  const deliveries = desintationsWithPresents( stops );
+
+  if ( deliveries.length === 0 ) {
     const center = new L.LatLng( 0, 0 );
     const noSanta = L.marker( center, {
       icon: santaIconDiv
@@ -61,13 +64,10 @@ export async function findSanta( map ) {
     return;
   }
 
-  const { destinations } = activeSantasRoute;
-  const santasLocation = getCurrentLocation( destinations );
-  const deliveries = desintationsWithPresents( destinations );
   const stopsGeoJson = geoJsonPointsFromDestinations( deliveries );
   const stopsLatLngs = latLngsFromDesintations( deliveries );
 
-  const route = new WrappedPolyline( stopsLatLngs, {
+  const santaRoute = new WrappedPolyline( stopsLatLngs, {
     weight: 2,
     color: 'green',
     opacity: 1,
@@ -75,7 +75,7 @@ export async function findSanta( map ) {
     fillOpacity: 0.5
   });
 
-  const stops = new L.geoJson( stopsGeoJson, {
+  const santaStops = new L.geoJson( stopsGeoJson, {
     type: 'deliveryStop',
     pointToLayer: deliveryPointToLayer
   });
@@ -86,30 +86,11 @@ export async function findSanta( map ) {
     .bindPopup( `Santa!` )
     .openPopup();
 
-  route.addTo( map );
-  stops.addTo( map );
+  santaRoute.addTo( map );
+  santaStops.addTo( map );
   santa.addTo( map );
 
   return santasLocation;
-}
-
-/**
- * getSanta
- * @description Get Santa's current location
- */
-
-async function getSanta() {
-  let santa;
-
-  try {
-    santa = await axios.get( santaApiEndpoint );
-  } catch ( e ) {
-    throw new Error( `Failed to get Santa: ${e}` );
-  }
-
-  const { data } = santa;
-
-  return data;
 }
 
 /**
@@ -118,8 +99,8 @@ async function getSanta() {
  * @param {object} santa An active Santa
  */
 
-async function getSantasRoute( santa ) {
-  const { route } = santa;
+async function getSantasRoute( santa = {}) {
+  const { route = santasRouteApiEndpoint } = santa;
   let santasRoute;
 
   if ( !route ) return;
@@ -140,9 +121,10 @@ async function getSantasRoute( santa ) {
  * @description Gets Santa's current location based on the known deintations
  */
 
-function getCurrentLocation( desintations ) {
-  const length = desintations.length;
-  const desintation = desintations[length - 1];
+function getCurrentLocation( destinations ) {
+  const stops = desintationsWithStops( destinations );
+  const length = stops.length;
+  const desintation = stops[length - 1];
   return latLngsFromDesintations([desintation])[0];
 }
 
@@ -165,6 +147,15 @@ function deliveryPointToLayer( feature = {}, latlng ) {
     icon: giftIconDiv
   }).bindPopup( text );
   return layer;
+}
+
+/**
+ * desintationsWithStops
+ * @decription Given an array of desintations, filters for those locations that received presents
+ */
+
+function desintationsWithStops( desintations = []) {
+  return desintations.filter(({ arrival } = {}) => arrival < Date.now());
 }
 
 /**
