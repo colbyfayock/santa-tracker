@@ -155,7 +155,7 @@ function deliveryPointToLayer( feature = {}, latlng ) {
  */
 
 function desintationsWithStops( desintations = []) {
-  return desintations.filter(({ arrival } = {}) => arrival < Date.now());
+  return desintations.filter(({ arrival } = {}) => arrival < 1577224500000 );
 }
 
 /**
