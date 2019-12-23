@@ -81,7 +81,9 @@ export async function findSanta( map ) {
   });
 
   const santa = L.marker( santasLocation, {
-    icon: santaIconDiv
+    icon: santaIconDiv,
+    zIndexOffset: 999,
+    riseOnHover: true
   })
     .bindPopup( `Santa!` )
     .openPopup();
@@ -144,7 +146,8 @@ function deliveryPointToLayer( feature = {}, latlng ) {
     </div>
   `;
   const layer = L.marker( latlng, {
-    icon: giftIconDiv
+    icon: giftIconDiv,
+    riseOnHover: true
   }).bindPopup( text );
   return layer;
 }
