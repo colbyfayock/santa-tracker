@@ -78,6 +78,17 @@ const IndexPage = () => {
       </Container>
 
       <Container type="content" className="text-center home-start">
+        <h2>Learn how to make your own Santa Tracker!</h2>
+        <p>
+          <a
+            className="button"
+            href="https://www.freecodecamp.org/news/create-your-own-santa-tracker-with-gatsby-and-react-leaflet/"
+          >
+            Tutorial on FreeCodeCamp.org
+          </a>
+        </p>
+        <br />
+        <br />
         <h2>Build your own mapping app!</h2>
         <p>Run the following in your terminal!</p>
         <pre>
