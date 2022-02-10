@@ -13,7 +13,7 @@
     "gatsby-source-filesystem": "^2.1.33",
     "leaflet": "^1.5.1",
     "leaflet-antimeridian": "git+https://git@github.com/briannaAndCo/Leaflet.Antimeridian.git",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
